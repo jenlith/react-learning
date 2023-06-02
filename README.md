@@ -9,3 +9,7 @@ First session of learning React basics with a [React Tutorial for Beginners (You
 Run using `npm run dev`
 
 Used [Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) as a reference for CSS
+
+## react-practice
+
+Working with JavaScript to practice working with React
