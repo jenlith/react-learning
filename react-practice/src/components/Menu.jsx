@@ -9,14 +9,19 @@ import Button from "./Button";
  * @param {*} props All possible props
  * @returns Button elements that function as a menu/navigation
  */
-function Menu(props) {
-  function onButtonClick (item) {
+function Menu(props, children) {
+  function onButtonClick(item) {
     console.log(item + " clicked");
   }
   return (
     <>
       {props.items.map((item, index) => (
-        <Button key={item} colour="info" item={item} clickHandler={onButtonClick}>
+        <Button
+          key={item}
+          colour="info"
+          item={item}
+          clickHandler={onButtonClick}
+        >
           {item}
         </Button>
       ))}

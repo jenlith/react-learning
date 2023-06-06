@@ -3,16 +3,32 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Menu from "./components/Menu";
+import Test from "./components/Test";
 
 function App() {
   return NewApp();
 }
 
 function NewApp() {
-  let menuItems = ['Home', 'About', 'Info'];
-  return <Menu text="World" items={menuItems}>
-    How Are You?
-  </Menu>
+  const [open, setOpen] = useState(true);
+  const quickClose = () => setOpen(false);
+  let menuItems = ["Home", "About", "Info"];
+  return (
+    <>
+      <Menu text="World" items={menuItems}>
+        How Are You?
+      </Menu>
+      <Test
+        title="test"
+        description="welcome"
+        acceptText="acceptance"
+        cancelText="cancellation"
+        acceptHandler={quickClose}
+        cancelHandler={quickClose}
+        closeHandler={quickClose}
+      />
+    </>
+  );
 }
 
 function OldApp() {

@@ -12,7 +12,7 @@ import React from "react";
 function Button(props) {
   return (
     <button
-      className={"btn btn-" + props.colour}
+      // className={"btn btn-" + props.colour}
       onClick={() => {
         props.clickHandler(props.item);
       }}
