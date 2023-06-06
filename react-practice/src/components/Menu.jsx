@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
+//TODO: delete file
 const Menu = ({ title, names, links, isVertical, toggleVisibility }) => {
   // determine what's included in the menu & how it's displayed
   const displayTitle = title && <h2>{title}</h2>;

@@ -12,4 +12,4 @@ Used [Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started
 
 ## react-practice
 
-Working with JavaScript to practice working with React
+Working with JavaScript to practice working with React. Creating a single-page application.

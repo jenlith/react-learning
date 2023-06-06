@@ -1,3 +1,7 @@
+/**
+ * Home
+ * @returns Component for Home view
+ */
 const Home = () => {
   return (
     <>

@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * Button
+ * @param {*} param a label and clickHandler for the button
+ * @returns HTML button element
+ */
 const Button = ({label, clickHandler}) => {
   return (
     <button

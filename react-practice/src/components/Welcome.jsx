@@ -1,3 +1,7 @@
+/**
+ * Welcome
+ * @returns Component for Welcome view
+ */
 const Welcome = () => {
   return (
     <div className="vertical page_component">
