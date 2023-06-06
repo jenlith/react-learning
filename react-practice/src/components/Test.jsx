@@ -10,14 +10,12 @@ const Test = ({
   closeHandler,
 }) => {
   const [open, setOpen] = React.useState(true);
-  const cancelButtonRef = React.useRef();
-  const acceptButtonRef = React.useRef();
-  const handleOKClicked = () => {
+  const handleAccept = () => {
     if (acceptHandler) {
       acceptHandler();
     }
   };
-  const handleCancelClicked = async () => {
+  const handleCancel = async () => {
     setOpen(false);
     if (cancelHandler) {
       cancelHandler();
@@ -34,8 +32,8 @@ const Test = ({
       <button onClick={handleClose}>Close</button>
       <h2>{title}</h2>
       <p>{description}</p>
-      <button ref={acceptButtonRef} onClick={handleOKClicked}>{acceptText}</button>
-      <button ref={cancelButtonRef} onClick={handleCancelClicked}>{cancelText}</button>
+      <button onClick={handleAccept}>{acceptText}</button>
+      <button onClick={handleCancel}>{cancelText}</button>
     </div>
   );
 };

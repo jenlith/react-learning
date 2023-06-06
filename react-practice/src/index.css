@@ -1,3 +1,4 @@
+/* Defaults */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,15 +19,17 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  padding: 0.5em;
+  margin-right: 0.5em;
 }
 a:hover {
   color: #535bf2;
 }
 
 body {
-  margin: 0;
+  margin: 2em;
+  padding: 2em;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -40,6 +43,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
+  margin: 0.5em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -55,6 +59,42 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Customizing */
+
+.menu {
+  font-size: large;
+  align-items: start;
+  background-color: palegoldenrod;
+  padding: 0.5em;
+  max-width: fit-content;
+  min-height: 92vh;
+}
+
+.menu ul {
+  /* hide bullets of lists */
+  list-style-type: none;
+}
+
+.menu > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.page_component {
+  padding-left: 2em;
+}
+
+/* Defaults */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

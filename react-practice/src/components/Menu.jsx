@@ -1,32 +1,23 @@
 import React from "react";
 import Button from "./Button";
 
-/**
- * Menu element
- *
- * Takes a list of items to create a 'Button Menu'
- *
- * @param {*} props All possible props
- * @returns Button elements that function as a menu/navigation
- */
-function Menu(props, children) {
-  function onButtonClick(item) {
-    console.log(item + " clicked");
-  }
+const Menu = ({ title, names, links, isVertical, toggleVisibility }) => {
+  // determine what's included in the menu & how it's displayed
+  const displayTitle = title && <h2>{title}</h2>;
+  const displayDirection = isVertical === true ? "vertical" : "horizontal";
+
+  // Returning the full menu
   return (
-    <>
-      {props.items.map((item, index) => (
-        <Button
-          key={item}
-          colour="info"
-          item={item}
-          clickHandler={onButtonClick}
-        >
-          {item}
-        </Button>
+    <div className={"menu " + displayDirection}>
+      {displayTitle}
+      {names.map((name, index) => (
+        <a key={name} href={links[index]} target="_blank">
+          {name}
+        </a>
       ))}
-    </>
+      <Button label="Close" clickHandler={toggleVisibility} />
+    </div>
   );
-}
+};
 
 export default Menu;
