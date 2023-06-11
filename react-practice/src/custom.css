@@ -1,0 +1,35 @@
+/* Customizing */
+
+.menu {
+  font-size: large;
+  align-items: start;
+  background-color: palegoldenrod;
+  padding: 0.5em;
+  max-width: fit-content;
+  min-height: 92vh;
+}
+
+.menu ul {
+  /* hide bullets of lists */
+  list-style-type: none;
+}
+
+.menu > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.page_component {
+  padding-left: 2em;
+}
+

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./index.css";
+import "./custom.css";
 import Button from "./components/Button";
 import Nav from "./components/Nav";
 import NavElement from "./components/NavElement";
@@ -9,39 +10,43 @@ import Welcome from "./components/Welcome";
 import Home from "./components/Home";
 
 function App() {
-  return NewApp();
-}
+  let defaultLink = "http://localhost:5173/";
 
-function NewApp() {
-  const [menuVisible, setMenuVisibility] = useState(true);
-  const closeMenu = () => setMenuVisibility(false);
-  const openMenu = () => setMenuVisibility(true);
-  const [currView, setView] = useState("Home");
   const navItems = ["Welcome", "Home", "About", "Info"];
-  const subMenu = ["1", "2", "3"];
+  const subNavItems = { Welcome: ["1"], Home: ["A", "B", "C"] };
+  const showSubItems = (parent) => {
+    return (
+      <>
+        {subNavItems[parent] &&
+          subNavItems[parent].map((sub) => {
+            return (
+              <NavElement key={sub} label={sub} link={defaultLink}></NavElement>
+            );
+          })}
+      </>
+    );
+  };
+
   // select a view for the body of the page
+  const [currView, setView] = useState("Welcome");
   const showView = () => {
     switch (currView) {
-      case "Home":
-        return <Home />;
       case "Welcome":
         return <Welcome />;
+      case "Home":
+        return <Home />;
       default:
-        return (
-          <>
-            <h1>No page found</h1>
-          </>
-        );
+        return <h1>No page found</h1>;
     }
   };
 
-  // Test Values
-  let defaultLink = "http://localhost:5173/";
+  const [menuVisible, setMenuVisibility] = useState(true);
+  const closeMenu = () => setMenuVisibility(false);
+  const openMenu = () => setMenuVisibility(true);
 
-  // The actual app appearance
-  return (
-    <div className="horizontal">
-      {menuVisible ? (
+  const fullMenu = () => {
+    return (
+      <>
         <Nav title="Navigation" isVertical={true} closeHandler={closeMenu}>
           {/* <NavElement label="About" isCurr={true} link={defaultLink}> */}
           {navItems.map((item) => {
@@ -53,21 +58,20 @@ function NewApp() {
                 link={defaultLink}
                 onClick={() => setView(item)}
               >
-                {item === currView
-                  ? subMenu.map((sub) => {
-                      return (
-                        <NavElement
-                          key={sub}
-                          label={sub}
-                          link={defaultLink}
-                        ></NavElement>
-                      );
-                    })
-                  : null}
+                {item === currView ? showSubItems(item) : null}
               </NavElement>
             );
           })}
         </Nav>
+      </>
+    );
+  };
+
+  // The actual app appearance
+  return (
+    <div className="horizontal">
+      {menuVisible ? (
+        fullMenu()
       ) : (
         <div className="menu">
           <Button label="View Navigation" clickHandler={openMenu} />
